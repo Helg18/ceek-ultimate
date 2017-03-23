@@ -1,0 +1,71 @@
+swagger: '2.0'
+info:
+  version: "1.0.0"
+  title: Ceek / Facebook Login API
+host: ceek.com
+schemes: [https]
+paths:
+  /v3/auth/facebook:
+    post:
+      description: |
+        Attempts to log in user with a `accessToken` as supplied by the Facebook JS SDK. See https://developers.facebook.com/docs/facebook-login/web for an example of how to generate this access token using the Facebook JS SDK.
+      produces:
+        - application/json
+      parameters:
+        -
+          name: deviceid
+          in: header
+          description: Unique ID of the device being used in request
+          required: true
+          type: string
+        -
+          name: facebook_access_token
+          in: formData
+          description: accessToken returned by Facebook API
+          required: true
+          type: string
+        -
+          name: email
+          in: formData
+          description: Email required when user is new, being registered
+          required: false
+          type: string
+        -
+          name: username
+          in: formData
+          description: Username required when user is new, being registered
+          required: false
+          type: string
+      responses:
+        500:
+          description: Facebook Token invalid response
+          schema:
+            title: message
+            type: string
+        400:
+          description: User not registered
+          schema:
+            title: message
+            type: string
+          examples:
+            1: User not registered
+        422:
+          description: Required field(s) invalid
+          schema:
+            title: message
+            type: string
+          examples:
+            1: The email field is required.
+            2: The username field is required.
+        409:
+          description: Email is already in use
+          schema:
+            title: message
+            type: string
+          examples:
+            1: The email is already in use.
+        200:
+          description: Successful response
+          schema:
+            title: user
+            type: object

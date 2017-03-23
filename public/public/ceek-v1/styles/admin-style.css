@@ -1,0 +1,10 @@
+body {
+    padding-top: 70px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* we can get rid of this later, its just for the temp 404 page */
+.center {text-align: center; margin-left: auto; margin-right: auto; margin-bottom: auto; margin-top: auto;}

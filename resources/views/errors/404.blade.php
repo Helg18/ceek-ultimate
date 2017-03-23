@@ -1,0 +1,1 @@
+@include('ceek.home', ['errors' => []])

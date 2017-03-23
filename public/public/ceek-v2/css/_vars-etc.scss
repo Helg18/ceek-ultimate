@@ -1,0 +1,98 @@
+/****************************
+Variables (font mixins, colors etc.)
+****************************/
+
+/* Variables */
+$grey: #b0b0b0;
+$teal: #12b9ab;
+$purple: #846fcb;
+$dark-purple: #6d427c;
+$white: white;
+$black: black;
+
+@font-face {
+    font-family: 'proxima_nova_rgregular';
+    src: url('fonts/proxima-nova/proximanova-regular-webfont.eot');
+    src: url('fonts/proxima-nova/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proxima-nova/proximanova-regular-webfont.woff2') format('woff2'),
+         url('fonts/proxima-nova/proximanova-regular-webfont.woff') format('woff'),
+         url('fonts/proxima-nova/proximanova-regular-webfont.ttf') format('truetype'),
+         url('fonts/proxima-nova/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'proxima_novaextrabold';
+    src: url('fonts/proxima-nova/proximanova-extrabold-webfont.eot');
+    src: url('fonts/proxima-nova/proximanova-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proxima-nova/proximanova-extrabold-webfont.woff2') format('woff2'),
+         url('fonts/proxima-nova/proximanova-extrabold-webfont.woff') format('woff'),
+         url('fonts/proxima-nova/proximanova-extrabold-webfont.ttf') format('truetype'),
+         url('fonts/proxima-nova/proximanova-extrabold-webfont.svg#proxima_novaextrabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin font-proxima($weight: 400) {
+	font-family: 'proxima_nova_rgregular', sans-serif;
+	font-weight: $weight;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font-proximaBold($weight: 400) {
+	font-family: 'proxima_novaextrabold', sans-serif;
+	font-weight: $weight;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+}
+
+/* hover color mixin */ 
+@mixin link-effect($color: $white, $hover-color: lighten($teal, 10%)) {
+    color: $color;
+
+    &:hover, &:focus {
+        color: $hover-color;
+    }
+    &:active {
+        color: darken($hover-color, 3%);
+    }
+}
+
+/* hover background-color mixin */
+@mixin link-effect-bg($color: $white, $hover-color: lighten($teal, 10%)) {
+    background-color: $color;
+
+    &:hover, &:focus {
+        background-color: $hover-color;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:active {
+        background-color: darken($hover-color, 3%);
+    }
+}
+
+@mixin my-transition($property: all, $duration: 0.2s) {
+	-webkit-transition: $property $duration ease;
+	transition: $property $duration ease;
+}
+
+@mixin opacity-translate($offset: -20px) {
+    -moz-transform: translateY($offset);
+    -webkit-transform: translateY($offset);
+    -o-transform: translateY($offset);
+    -ms-transform: translateY($offset);
+    transform: translateY($offset);
+    @include my-transition(all);
+
+    &.visible {
+        opacity: 1;
+        -moz-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -o-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,87 @@
+/****************************
+Components (mixins, resuable chunks)
+****************************/
+
+.container {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.container img {
+	max-width: 100%;
+}
+
+.inline-link {
+	border-bottom: 1px solid white !important;
+	display: inline-block !important;
+}
+
+.btn {
+
+	&:active {
+		box-shadow: none;
+	}
+}
+
+button.close {
+	background-color: $grey;
+	color: white;
+	border-radius: 50%;
+	display: block;
+	padding: 0;
+	width: 35px;
+	height: 35px;
+	margin-top: 65px;
+	opacity: 1;
+	font-size: 18px;
+
+	&:active, &:focus {
+		outline: none;
+	}
+
+	&:hover {
+		opacity: 0.8;
+	}
+} // button.close
+
+.btn-gradient {
+	color: white;
+	display: inline-block;
+	padding: 17px;
+	border-radius: 10px;
+	border: none;
+	font-size: 18px;
+
+	background: rgba(17,168,166,1);
+	background: -moz-linear-gradient(-45deg, rgba(17,168,166,1) 0%, rgba(93,115,176,1) 62%, rgba(105,106,178,1) 72%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(17,168,166,1)), color-stop(62%, rgba(93,115,176,1)), color-stop(72%, rgba(105,106,178,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(17,168,166,1) 0%, rgba(93,115,176,1) 62%, rgba(105,106,178,1) 72%);
+	background: -o-linear-gradient(-45deg, rgba(17,168,166,1) 0%, rgba(93,115,176,1) 62%, rgba(105,106,178,1) 72%);
+	background: -ms-linear-gradient(-45deg, rgba(17,168,166,1) 0%, rgba(93,115,176,1) 62%, rgba(105,106,178,1) 72%);
+	background: linear-gradient(135deg, rgba(17,168,166,1) 0%, rgba(93,115,176,1) 62%, rgba(105,106,178,1) 72%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#11a8a6', endColorstr='#696ab2', GradientType=1 );
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.btn-gradient.connect-facebook {
+	position: relative;
+	padding: 17px 17px 17px 80px;
+
+	&:before {
+		font-family: 'fontAwesome';
+		content: '\f09a';
+		color: white;
+		display: inline-block;
+		background-color: rgba(255,255,255,0.3);
+		position: absolute;
+		left: 0;
+		top: 0;
+		padding: 10px 23px 9px;
+		font-size: 28px;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+	}
+}

@@ -1,0 +1,1 @@
+$(document).ready(function(){$('textarea[name="content"]').summernote({height:300,minHeight:null,maxHeight:null})});
